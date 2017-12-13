@@ -315,9 +315,7 @@ body{
 <body>
 <div style="width:600px;margin:0 auto;">
   <div> <!-- todo: make something happen when you click robot -->
-    <a href="https://lh3.googleusercontent.com/-2zAgnwqgq4Y/AAAAAAAAAAI/AAAAAAAAB_8/o7gJFn3e0qs/photo.jpg"> <!-- todo: make my own robot face -->
-      <img src="robot-icon-2.gif" alt="">
-    </a>
+    <img id="robot" src="robot-icon-2.gif" alt="">
   <div id="output" class="talk-bubble border round"></div>
   </div>
 </div>
@@ -329,7 +327,7 @@ body{
 <script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
 <script>
 var questionNum = 0;													// keep count of question, used for IF condition.
-var question = '<p>what is your name?</p>';				  // first question
+var question = '<p>What is your name?</p>';				  // first question
 
 var output = document.getElementById('output');				// store id="output" in output variable
 output.innerHTML = question;													// ouput first question
@@ -339,23 +337,23 @@ function bot() {
     console.log(input);
 
     if (questionNum == 0) {
-    output.innerHTML = '<p>hello ' + input + '</p>';// output response
+    output.innerHTML = '<p>Hello ' + input + '</p>';// output response
     document.getElementById("input").value = "";   		// clear text box
-    question = '<p>how old are you?</p>';			    	// load next question
+    question = '<p>How old are you?</p>';			    	// load next question
     setTimeout(timedQuestion, 2000);									// output next question after 2sec delay
     }
 
     else if (questionNum == 1) {
-    output.innerHTML = '<p>That means you were born in ' + (2018 - input) + '</p>';
+    output.innerHTML = '<p>That means you were born in ' + (2017 - input) + '</p>';
     document.getElementById("input").value = "";
-    question = '<p>where are you from?</p>';
+    question = '<p>Where are you from?</p>';
     setTimeout(timedQuestion, 2000);
     }
 
     else if (questionNum == 2) {
-    output.innerHTML = '<p>I am still learning. I have never heard of ' + input + '</p>';
+    output.innerHTML = '<p> I have never heard of ' + input + '</p>';
     document.getElementById("input").value = "";
-    question = '<p>Do you like it in' + input + '?</p>';
+    question = '<p>Do you like it in ' + input + '?</p>';
     setTimeout(timedQuestion, 2000);
     }
 }
@@ -371,6 +369,137 @@ $(document).keypress(function(e) {
     questionNum++;																		// increase questionNum count by 1
   }
 });
+$(function() {
+  $("#input").focus();
+});
 </script>
+
+<script>
+
+// nice little shake effect for clicking the robot; ty stack overflow ;)
+
+var shakingElements = [];
+
+var shake = function (element, magnitude = 16, angular = false) {
+  //First set the initial tilt angle to the right (+1)
+  var tiltAngle = 1;
+
+  //A counter to count the number of shakes
+  var counter = 1;
+
+  //The total number of shakes (there will be 1 shake per frame)
+  var numberOfShakes = 15;
+
+  //Capture the element's position and angle so you can
+  //restore them after the shaking has finished
+  var startX = 0,
+      startY = 0,
+      startAngle = 0;
+
+  // Divide the magnitude into 10 units so that you can
+  // reduce the amount of shake by 10 percent each frame
+  var magnitudeUnit = magnitude / numberOfShakes;
+
+  //The `randomInt` helper function
+  var randomInt = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
+
+  //Add the element to the `shakingElements` array if it
+  //isn't already there
+  if(shakingElements.indexOf(element) === -1) {
+    //console.log("added")
+    shakingElements.push(element);
+
+    //Add an `updateShake` method to the element.
+    //The `updateShake` method will be called each frame
+    //in the game loop. The shake effect type can be either
+    //up and down (x/y shaking) or angular (rotational shaking).
+    if(angular) {
+      angularShake();
+    } else {
+      upAndDownShake();
+    }
+  }
+
+  //The `upAndDownShake` function
+  function upAndDownShake() {
+
+    //Shake the element while the `counter` is less than
+    //the `numberOfShakes`
+    if (counter < numberOfShakes) {
+
+      //Reset the element's position at the start of each shake
+      element.style.transform = 'translate(' + startX + 'px, ' + startY + 'px)';
+
+      //Reduce the magnitude
+      magnitude -= magnitudeUnit;
+
+      //Randomly change the element's position
+      var randomX = randomInt(-magnitude, magnitude);
+      var randomY = randomInt(-magnitude, magnitude);
+
+      element.style.transform = 'translate(' + randomX + 'px, ' + randomY + 'px)';
+
+      //Add 1 to the counter
+      counter += 1;
+
+      requestAnimationFrame(upAndDownShake);
+    }
+
+    //When the shaking is finished, restore the element to its original
+    //position and remove it from the `shakingElements` array
+    if (counter >= numberOfShakes) {
+      element.style.transform = 'translate(' + startX + ', ' + startY + ')';
+      shakingElements.splice(shakingElements.indexOf(element), 1);
+    }
+  }
+
+  //The `angularShake` function
+  function angularShake() {
+    if (counter < numberOfShakes) {
+      console.log(tiltAngle);
+      //Reset the element's rotation
+      element.style.transform = 'rotate(' + startAngle + 'deg)';
+
+      //Reduce the magnitude
+      magnitude -= magnitudeUnit;
+
+      //Rotate the element left or right, depending on the direction,
+      //by an amount in radians that matches the magnitude
+      var angle = Number(magnitude * tiltAngle).toFixed(2);
+      console.log(angle);
+      element.style.transform = 'rotate(' + angle + 'deg)';
+      counter += 1;
+
+      //Reverse the tilt angle so that the element is tilted
+      //in the opposite direction for the next shake
+      tiltAngle *= -1;
+
+      requestAnimationFrame(angularShake);
+    }
+
+    //When the shaking is finished, reset the element's angle and
+    //remove it from the `shakingElements` array
+    if (counter >= numberOfShakes) {
+      element.style.transform = 'rotate(' + startAngle + 'deg)';
+      shakingElements.splice(shakingElements.indexOf(element), 1);
+      //console.log("removed")
+    }
+  }
+
+};
+
+document.querySelector('#robot').addEventListener('click', (e) => {
+  shake(e.currentTarget);
+});
+
+document.querySelector('.green').addEventListener('mouseenter', (e) => {
+  shake(e.currentTarget, 20, true);
+});
+
+</script>
+
+
 </body>
 </html>
