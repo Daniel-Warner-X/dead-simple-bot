@@ -332,6 +332,14 @@ var question = '<p>What is your name?</p>';				  // first question
 var output = document.getElementById('output');				// store id="output" in output variable
 output.innerHTML = question;													// ouput first question
 
+
+
+
+// *********** This is where you can change the questions *********
+// ****************************************************************
+
+
+
 function bot() {
     var input = document.getElementById("input").value;
     console.log(input);
@@ -356,8 +364,19 @@ function bot() {
     question = '<p>Do you like it in ' + input + '?</p>';
     setTimeout(timedQuestion, 2000);
     }
-}
 
+    else if (input == "yes") {
+    output.innerHTML = '<p> Great! Thanks for talking to me!</p>';
+    }
+
+    else if (input == "no") {
+    output.innerHTML = '<p> Too bad! <a href="https://www.google.com/search?ei=Y60wWo7VHInx_AaK5oOoBA&q=New+places+to+live&oq=New+places+to+live&gs_l=psy-ab.3..0l2j0i22i30k1l8.36084.38338.0.38595.18.17.0.1.1.0.155.1532.14j3.17.0....0...1c.1.64.psy-ab..1.17.1409...0i131k1j0i67k1j0i131i67k1.0.WsTGnn9stBA">Click here to find a new place to live.</a></p>';
+    }
+
+    else {
+    output.innerHTML = '<p> Okay then. Thanks for chatting. TTYL</p>';
+    }
+}
 function timedQuestion() {
     output.innerHTML = question;
 }
