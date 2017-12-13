@@ -43,16 +43,285 @@ input {
     display: inline-block;
     font-size: 30px;
 }
+
+
+/* General CSS Setup */
+body{
+  font-family: "Ubuntu-Italic", "Lucida Sans", helvetica, sans;
+}
+
+/* container */
+.container {
+  padding: 5% 5%;
+}
+
+/* CSS talk bubble */
+.talk-bubble {
+  margin: 40px;
+  display: inline-block;
+  position: relative;
+  width: 300px;
+  height: auto;
+  background-color: white;
+  padding: 30px;
+  margin-bottom: -50px;
+}
+.border{
+  border: 8px solid #666;
+}
+.round{
+  border-radius: 30px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+
+}
+
+/* Right triangle placed top left flush. */
+.tri-right.border.left-top:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: -40px;
+	right: auto;
+  top: -8px;
+	bottom: auto;
+	border: 32px solid;
+	border-color: #666 transparent transparent transparent;
+}
+.tri-right.left-top:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: -20px;
+	right: auto;
+  top: 0px;
+	bottom: auto;
+	border: 22px solid;
+	border-color: lightyellow transparent transparent transparent;
+}
+
+/* Right triangle, left side slightly down */
+.tri-right.border.left-in:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: -40px;
+	right: auto;
+  top: 30px;
+	bottom: auto;
+	border: 20px solid;
+	border-color: #666 #666 transparent transparent;
+}
+.tri-right.left-in:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: -20px;
+	right: auto;
+  top: 38px;
+	bottom: auto;
+	border: 12px solid;
+	border-color: lightyellow lightyellow transparent transparent;
+}
+
+/*Right triangle, placed bottom left side slightly in*/
+.tri-right.border.btm-left:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: -8px;
+  right: auto;
+  top: auto;
+	bottom: -40px;
+	border: 32px solid;
+	border-color: transparent transparent transparent #666;
+}
+.tri-right.btm-left:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 0px;
+  right: auto;
+  top: auto;
+	bottom: -20px;
+	border: 22px solid;
+	border-color: transparent transparent transparent lightyellow;
+}
+
+/*Right triangle, placed bottom left side slightly in*/
+.tri-right.border.btm-left-in:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 30px;
+  right: auto;
+  top: auto;
+	bottom: -40px;
+	border: 20px solid;
+	border-color: #666 transparent transparent #666;
+}
+.tri-right.btm-left-in:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 38px;
+  right: auto;
+  top: auto;
+	bottom: -20px;
+	border: 12px solid;
+	border-color: white transparent transparent white;
+}
+
+/*Right triangle, placed bottom right side slightly in*/
+.tri-right.border.btm-right-in:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: 30px;
+	bottom: -40px;
+	border: 20px solid;
+	border-color: #666 #666 transparent transparent;
+}
+.tri-right.btm-right-in:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: 38px;
+	bottom: -20px;
+	border: 12px solid;
+	border-color: lightyellow lightyellow transparent transparent;
+}
+/*
+	left: -8px;
+  right: auto;
+  top: auto;
+	bottom: -40px;
+	border: 32px solid;
+	border-color: transparent transparent transparent #666;
+	left: 0px;
+  right: auto;
+  top: auto;
+	bottom: -20px;
+	border: 22px solid;
+	border-color: transparent transparent transparent lightyellow;
+
+/*Right triangle, placed bottom right side slightly in*/
+
+/*chat bubble styles by @Founts */
+
+.tri-right.border.btm-right:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: -8px;
+	bottom: -40px;
+	border: 20px solid;
+	border-color: #666 #666 transparent transparent;
+}
+.tri-right.btm-right:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: 0px;
+	bottom: -20px;
+	border: 12px solid;
+	border-color: lightyellow white transparent transparent;
+}
+
+/* Right triangle, right side slightly down*/
+.tri-right.border.right-in:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: -40px;
+  top: 30px;
+	bottom: auto;
+	border: 20px solid;
+	border-color: #666 transparent transparent #666;
+}
+.tri-right.right-in:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: -20px;
+  top: 38px;
+	bottom: auto;
+	border: 12px solid;
+	border-color: lightyellow transparent transparent lightyellow;
+}
+
+/* Right triangle placed top right flush. */
+.tri-right.border.right-top:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: -40px;
+  top: -8px;
+	bottom: auto;
+	border: 32px solid;
+	border-color: #666 transparent transparent transparent;
+}
+.tri-right.right-top:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: -20px;
+  top: 0px;
+	bottom: auto;
+	border: 20px solid;
+	border-color: lightyellow transparent transparent transparent;
+}
+
+/* talk bubble contents */
+.talktext{
+  padding: 1em;
+	text-align: left;
+  line-height: 1.5em;
+}
+.talktext p{
+  /* remove webkit p margins */
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+}
+
+#output {margin: 0 auto;}
+
 </style>
 </head>
 <body>
-<div style="width:600px;margin:0 auto;"> <!-- todo: make something happen when you click robot -->
-  <a href="https://lh3.googleusercontent.com/-2zAgnwqgq4Y/AAAAAAAAAAI/AAAAAAAAB_8/o7gJFn3e0qs/photo.jpg"> <!-- todo: make my own robot face -->
-    <img src="robot-icon-2.gif" alt="">
-  </a>
+<div style="width:600px;margin:0 auto;">
+  <div> <!-- todo: make something happen when you click robot -->
+    <a href="https://lh3.googleusercontent.com/-2zAgnwqgq4Y/AAAAAAAAAAI/AAAAAAAAB_8/o7gJFn3e0qs/photo.jpg"> <!-- todo: make my own robot face -->
+      <img src="robot-icon-2.gif" alt="">
+    </a>
+  <div id="output" class="talk-bubble border round"></div>
+  </div>
 </div>
-<div id="output"></div>
-<div id="container">
+<div id="container" style="margin-top: 30px;">
     <input type="text" id="input" value="">
 </div>
 
@@ -60,7 +329,7 @@ input {
 <script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
 <script>
 var questionNum = 0;													// keep count of question, used for IF condition.
-var question = '<h1>what is your name?</h1>';				  // first question
+var question = '<p>what is your name?</p>';				  // first question
 
 var output = document.getElementById('output');				// store id="output" in output variable
 output.innerHTML = question;													// ouput first question
@@ -70,23 +339,23 @@ function bot() {
     console.log(input);
 
     if (questionNum == 0) {
-    output.innerHTML = '<h1>hello ' + input + '</h1>';// output response
+    output.innerHTML = '<p>hello ' + input + '</p>';// output response
     document.getElementById("input").value = "";   		// clear text box
-    question = '<h1>how old are you?</h1>';			    	// load next question
+    question = '<p>how old are you?</p>';			    	// load next question
     setTimeout(timedQuestion, 2000);									// output next question after 2sec delay
     }
 
     else if (questionNum == 1) {
-    output.innerHTML = '<h1>That means you were born in ' + (2018 - input) + '</h1>';
+    output.innerHTML = '<p>That means you were born in ' + (2018 - input) + '</p>';
     document.getElementById("input").value = "";
-    question = '<h1>where are you from?</h1>';
+    question = '<p>where are you from?</p>';
     setTimeout(timedQuestion, 2000);
     }
 
     else if (questionNum == 2) {
-    output.innerHTML = '<h1>I am still learning. I have never heard of ' + input + '</h1>';
+    output.innerHTML = '<p>I am still learning. I have never heard of ' + input + '</p>';
     document.getElementById("input").value = "";
-    question = '<h1>Do you like it in' + input + '?</h1>';
+    question = '<p>Do you like it in' + input + '?</p>';
     setTimeout(timedQuestion, 2000);
     }
 }
