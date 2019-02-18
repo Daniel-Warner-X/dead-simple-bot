@@ -1,3 +1,3 @@
 # dead-simple-bot
 
-Hour Of Code demo for fourth graders
+Prototyping a bot-like interaction with fourth graders for the Hour Of Code
